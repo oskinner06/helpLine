@@ -8,7 +8,18 @@
         $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        
+        $sql = "SELECT Password From accounts WHERE Username='" . $_POST["username"]. "'";
+
+        echo $sql . "<br>";
+        $result = $conn->query($sql);
+
+        echo $conn->query($sql);
+
+        if ($_POST["password"] == $result ) {
+            echo "workign";
+        } else {
+            echo "not";
+        }
     
     }catch(PDOException $e)
     {
