@@ -1,5 +1,19 @@
 <?php
+    $host     = "localhost";//Ip of database, in this case my host machine    
+    $user     = "root";	//Username to use
+    $pass     = "usbw";//Password for that user
+    $dbname   = "helpline";//Name of the database
+
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        
     
+    }catch(PDOException $e)
+    {
+      echo $e->getMessage();                         
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +25,6 @@
     <title>Test</title>
 </head>
 <body>
-    <h1> hi <?php echo $temp; ?>
+    <h1> hi <?php echo $test; ?>
 </body>
 </html>
