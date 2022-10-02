@@ -4,11 +4,14 @@
     $pass     = "usbw";//Password for that user
     $dbname   = "helpline";//Name of the database
 
+    //https://www.campcodes.com/tutorials/php-tutorials/simple-login-using-pdo-in-php-mysql/#Creating_Database
+
     try {
         $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT Password From accounts WHERE Username='" . $_POST["username"]. "'";
+        //$sql = "SELECT Password From accounts WHERE Username='" . $_POST["username"]. "'";
+        $sql = "SELECT * FROM accounts";
 
         echo $sql . "<br>";
         $result = $conn->query($sql);
@@ -20,6 +23,8 @@
         } else {
             echo "not";
         }
+
+        
     
     }catch(PDOException $e)
     {
@@ -36,6 +41,6 @@
     <title>Test</title>
 </head>
 <body>
-    <h1> hi <?php echo $test; ?>
+    <h1> hi <?php echo "hi"; ?>
 </body>
 </html>
